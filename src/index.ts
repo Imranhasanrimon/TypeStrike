@@ -1,11 +1,11 @@
-//------------------------------------------------1
+
 type FormatString = (input: string, toUpper?: boolean) => string;
 const formatString: FormatString = (input, toUpper = true) => {
     return toUpper ? input.toUpperCase() : input.toLowerCase()
 }
 
 
-//------------------------------------------------2
+
 interface Item {
     title: string;
     rating: number;
@@ -13,13 +13,13 @@ interface Item {
 const filterByRating = (items: Item[]): Item[] => items.filter(item => item.rating >= 4)
 
 
-//------------------------------------------------3
+
 const concatenateArrays = <T>(...arrays: T[][]): T[] => {
     return arrays.reduce((acc, curr) => acc.concat(curr), []);
 }
 
 
-//------------------------------------------------4
+
 class Vehicle {
     private make: string;
     private year: number;
@@ -43,7 +43,7 @@ class Car extends Vehicle {
 }
 
 
-//------------------------------------------------5
+
 type ProcessValue = (value: string | number) => number;
 const processValue: ProcessValue = (value) => {
 
@@ -56,19 +56,43 @@ const processValue: ProcessValue = (value) => {
 }
 
 
-//------------------------------------------------6
+
 interface Product {
     name: string;
     price: number;
 }
 const getMostExpensiveProduct = (products: Product[]): Product | null => {
-    if (!products.length) {
-        return null
-    }
+    if (!products.length) return null
     return products.reduce((acc, curr) => curr.price > acc.price ? curr : acc);
 }
 
 
-//------------------------------------------------7
 
-//------------------------------------------------8
+enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+}
+const getDayType = (day: Day): string => {
+    if (day <= Day.Friday) return "Weekday"
+    return "Weekend";
+}
+
+
+
+const squareAsync = async (n: number): Promise<number> => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (n < 0) {
+                reject(new Error("Negative number not allowed"));
+            } else {
+                resolve(n * n);
+            }
+        }, 1000);
+    });
+}
+
