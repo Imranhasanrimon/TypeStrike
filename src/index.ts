@@ -14,8 +14,34 @@ const filterByRating = (items: Item[]): Item[] => items.filter(item => item.rati
 
 
 //------------------------------------------------3
+const concatenateArrays = <T>(...arrays: T[][]): T[] => {
+    return arrays.reduce((acc, curr) => acc.concat(curr), []);
+}
+
 
 //------------------------------------------------4
+class Vehicle {
+    private make: string;
+    private year: number;
+    constructor(make: string, year: number) {
+        this.make = make;
+        this.year = year;
+    }
+    getInfo(): string {
+        return `Make: ${this.make}, Year: ${this.year}`
+    }
+}
+class Car extends Vehicle {
+    private model: string;
+    constructor(make: string, year: number, model: string) {
+        super(make, year);
+        this.model = model
+    }
+    getModel(): string {
+        return `Model: ${this.model}`
+    }
+}
+
 //------------------------------------------------5
 //------------------------------------------------6
 //------------------------------------------------7
