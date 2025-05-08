@@ -42,7 +42,33 @@ class Car extends Vehicle {
     }
 }
 
+
 //------------------------------------------------5
+type ProcessValue = (value: string | number) => number;
+const processValue: ProcessValue = (value) => {
+
+    if (typeof value === "string") {
+        return value.length;
+    } else {
+        return value * 2;
+    }
+
+}
+
+
 //------------------------------------------------6
+interface Product {
+    name: string;
+    price: number;
+}
+const getMostExpensiveProduct = (products: Product[]): Product | null => {
+    if (!products.length) {
+        return null
+    }
+    return products.reduce((acc, curr) => curr.price > acc.price ? curr : acc);
+}
+
+
 //------------------------------------------------7
+
 //------------------------------------------------8
